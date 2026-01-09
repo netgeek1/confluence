@@ -893,7 +893,7 @@ write_api_root_route() {
     # Add a simple route to serve the UI page at /
     # Append to api/api.py: create a route to serve the template
     # We'll modify the file to include Jinja2 template serving
-    python - <<'PY' || true
+    python3 - <<'PY' || true
 from pathlib import Path
 p = Path("${PROJECT_ROOT}/app/api/api.py")
 s = p.read_text()
@@ -1067,7 +1067,7 @@ main_menu() {
         echo "6) Scaffold project under /opt (write all files)"
         echo "7) Build Docker image"
         echo "8) Run confluence-exporter (UI)"
-        echo "9) Run confluence-exporter (UI)"
+        echo "9) Stop confluence-exporter (UI)"
         echo "10) Targeted cleanup (project only)"
         echo "11) Nuclear cleanup (ALL Docker data + project)"
         echo "12) Exit"
@@ -1113,7 +1113,7 @@ main_menu() {
                 pause
                 ;;
             9)
-                run_exporter_ui
+                stop_exporter_ui
                 pause
                 ;;
             10)
